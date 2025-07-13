@@ -14,6 +14,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/clear-config', function () {
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    return 'git Configuração recarregada!';
+});
+
+
 // Login
 Route::get('/login', [LoginController::class, 'create'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
