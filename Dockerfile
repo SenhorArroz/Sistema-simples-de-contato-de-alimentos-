@@ -23,9 +23,6 @@ COPY . /var/www
 # Instala as dependências do Composer sem scripts de dev e de forma otimizada
 RUN composer install --no-dev --optimize-autoloader
 
-# Gera a chave da aplicação se não existir (o Render vai injetar a variável)
-RUN php artisan key:generate --force
-
 # Ajusta as permissões para o usuário www-data
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
