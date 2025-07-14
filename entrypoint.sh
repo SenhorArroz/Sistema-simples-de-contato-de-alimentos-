@@ -12,7 +12,7 @@ php artisan config:clear
 # 2. Roda as migrations do banco de dados.
 #    Agora que a configuração está correta, as migrations vão funcionar.
 echo "Rodando as migrations..."
-php artisan migrate --force
+php artisan migrate:fresh --seed --force
 
 # 3. Inicia o servidor do Laravel.
 #    O comando 'exec' substitui o processo do shell pelo do php, que é a prática recomendada.
